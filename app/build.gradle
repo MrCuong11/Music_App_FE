@@ -1,0 +1,211 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.androidmusicapp'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.androidmusicapp"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src\\main\\res'
+            }
+        }}
+        buildFeatures {
+            dataBinding true
+            viewBinding true
+            compose true
+        }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.3'
+    }
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+}
+
+
+
+    dependencies {
+        implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+        implementation 'androidx.appcompat:appcompat:1.6.1'
+        implementation 'com.google.android.material:material:1.5.0'
+//        Thư viện template Material Design của Google
+        implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+        implementation 'com.google.firebase:firebase-auth:22.2.0'
+//        Thư viện xử lý đăng nhập, đăng ký của Firebase
+        implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+//        Hỗ trợ ngược cho các API lỗi thời để hỗ trợ việc sử dụng android phiên bản cũ hơn
+        implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+        implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+        implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
+//        Thư viện quản lý vòng đời các thành phần trong Android (làm việc với koltin)
+        implementation 'androidx.activity:activity-compose:1.7.0'
+        implementation platform('androidx.compose:compose-bom:2023.03.00')
+        implementation 'androidx.compose.ui:ui'
+        implementation 'androidx.compose.ui:ui-graphics'
+        implementation 'androidx.compose.ui:ui-tooling-preview'
+        implementation 'androidx.compose.material3:material3'
+//         Tích hợp Activity với Compose (Compose là một framework để xây dựng giao diện người dụng (UI) mới của Android do Google phát triển.)
+
+
+        testImplementation 'junit:junit:4.13.2'
+        androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+//        test
+        implementation 'com.github.bumptech.glide:glide:4.14.2'
+//        Thư viện xử lý ảnh có cache, download trong nền.
+        implementation 'com.google.code.gson:gson:2.10.1'
+//        Thư viện chuyển đổi JSON sang Object và ngược lại.
+        implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+        implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+        implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+        implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+//        Thư viện kết nối REST API dễ dàng.
+        androidTestImplementation platform('androidx.compose:compose-bom:2023.03.00')
+        androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+        debugImplementation 'androidx.compose.ui:ui-tooling'
+        debugImplementation 'androidx.compose.ui:ui-test-manifest'
+//        test và debug
+    }
+
+
+
+//dependency "com.google.android.material:material" là thư viện chứa các component (widget) tuân thủ Material Design do Google cung cấp.
+//
+            //        Material Design là ngôn ngữ thiết kế được Google phát triển nhằm tạo ra giao diện người dùng trừu tượng và mạnh mẽ cho tất cả các thiết bị.
+            //
+            //Thư viện này cung cấp nhiều widget mà không cần phát triển lại từ đầu như:
+            //
+            //        Button, TextButton, FloatingActionButton: Các nút có thể thay đổi kích cỡ, màu sắc tuân theo Material Design.
+            //
+            //        TextInputLayout: Bố cục cho các trường nhập liệu (EditText) với mô tả, lỗi validation.
+            //
+            //        CardView: Card cho phép xử lý bóng, góc tròn tuân theo Material.
+            //
+            //NavigationView, BottomNavigationView: Các menu, tab navigation.
+            //
+            //        Snackbar, Toolbar, TabLayout: Các thành phần phản hồi người dùng.
+
+
+
+
+
+//Các thư viện bạn đã đề cập đến liên quan đến việc phát triển ứng dụng Android sử dụng Compose, một framework để xây dựng giao diện người dùng một cách khai báo và linh hoạt hơn. Dưới đây là giải thích chi tiết về mỗi thư viện:
+//
+//        androidx.activity:activity-compose:1.7.0
+//
+//Thư viện androidx.activity:activity-compose là một phần của AndroidX và cung cấp các hỗ trợ cho việc tích hợp Compose với Activity trong ứng dụng của bạn. Nó giúp bạn xây dựng giao diện người dùng bằng cách sử dụng Compose trong các hoạt động (Activity) của ứng dụng.
+//androidx.compose.ui:ui
+//
+//androidx.compose.ui:ui là một phần của Compose và chứa các thành phần cơ bản để xây dựng giao diện người dùng. Các thành phần này bao gồm View, Text, Image và các loại khác, cho phép bạn tạo ra giao diện người dùng theo cách khai báo.
+//        androidx.compose.ui:ui-graphics
+//
+//androidx.compose.ui:ui-graphics cung cấp các công cụ và API để vẽ đồ họa trên giao diện người dùng sử dụng Compose. Nó bao gồm các lớp và phương thức để vẽ các hình dạng, đường cong, màu sắc và các hiệu ứng khác trên các thành phần giao diện người dùng.
+//androidx.compose.ui:ui-tooling-preview
+//
+//androidx.compose.ui:ui-tooling-preview cung cấp các công cụ hỗ trợ và xem trước cho việc phát triển giao diện người dùng bằng Compose. Nó bao gồm các công cụ giúp bạn kiểm tra và xem trước giao diện người dùng trong quá trình phát triển.
+//        androidx.compose.material3:material3
+//
+//androidx.compose.material3:material3 là một bộ sưu tập các thành phần giao diện người dùng theo phong cách Material Design 3.0 được xây dựng bằng Compose. Bao gồm các thành phần như Button, TextField, AppBar và các loại khác, giúp bạn xây dựng giao diện người dùng đẹp mắt và tuân thủ các hướng dẫn thiết kế của Google.
+//Tóm lại, các thư viện này cung cấp các công cụ, thành phần và hỗ trợ cho việc phát triển giao diện người dùng bằng Compose trong ứng dụng Android của bạn, giúp bạn xây dựng giao diện người dùng một cách dễ dàng và linh hoạt hơn.
+
+
+
+
+
+
+
+//Thư viện com.github.bumptech.glide:glide là một thư viện xử lý ảnh phổ biến trong phát triển ứng dụng Android. Dưới đây là một giải thích chi tiết về thư viện này:
+//
+//Xử lý ảnh: Glide cung cấp các công cụ và API cho việc tải và hiển thị hình ảnh trong ứng dụng Android một cách dễ dàng và linh hoạt. Bạn có thể sử dụng Glide để tải hình ảnh từ các nguồn khác nhau như URL, local storage hoặc resources của ứng dụng.
+//
+//Caching: Glide hỗ trợ caching để lưu trữ hình ảnh đã tải trên thiết bị, giúp giảm thiểu việc tải lại hình ảnh khi cần thiết. Điều này giúp tăng tốc độ tải trang và giảm lượng dữ liệu mạng cần tải.
+//
+//Download trong nền: Glide cho phép bạn tải ảnh trong nền mà không ảnh hưởng đến trải nghiệm người dùng. Điều này có nghĩa là bạn có thể tiếp tục sử dụng ứng dụng mà không cần phải chờ đợi quá trình tải ảnh hoàn tất.
+
+
+
+
+
+
+
+
+//Thư viện com.google.code.gson:gson là một thư viện Java được Google cung cấp, giúp bạn thực hiện các thao tác chuyển đổi giữa dữ liệu JSON và các đối tượng Java một cách dễ dàng. Dưới đây là một giải thích chi tiết về thư viện này:
+//
+//        Chuyển đổi JSON sang Object và ngược lại: Gson cung cấp các phương thức và công cụ cho phép bạn chuyển đổi dữ liệu JSON thành các đối tượng Java và ngược lại. Điều này rất hữu ích khi bạn cần làm việc với dữ liệu JSON từ các API web hoặc lưu trữ dữ liệu dưới dạng JSON trong cơ sở dữ liệu hoặc tệp tin, và muốn biến chúng thành các đối tượng Java để xử lý dễ dàng hơn.
+//
+//        Serialize và Deserialize: Gson hỗ trợ việc serialize (chuyển đổi) các đối tượng Java thành chuỗi JSON, và deserialize (chuyển đổi ngược lại) các chuỗi JSON thành các đối tượng Java. Điều này giúp bạn thực hiện các thao tác lưu trữ và truyền tải dữ liệu một cách linh hoạt và tiện lợi.
+//
+//        Tính linh hoạt và dễ sử dụng: Gson có cú pháp đơn giản và dễ sử dụng, cho phép bạn thực hiện chuyển đổi giữa JSON và Java một cách nhanh chóng và hiệu quả. Bạn chỉ cần định nghĩa các lớp Java tương ứng với cấu trúc dữ liệu JSON, và Gson sẽ thực hiện việc chuyển đổi một cách tự động.
+//
+//        Hỗ trợ đa dạng các kiểu dữ liệu: Gson hỗ trợ đa dạng các kiểu dữ liệu, bao gồm các kiểu dữ liệu cơ bản như chuỗi, số, boolean, và cũng như các kiểu dữ liệu phức tạp như mảng, danh sách, đối tượng nested, và thậm chí là đối tượng lồng nhau.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Thư viện Retrofit là một công cụ mạnh mẽ trong việc kết nối ứng dụng Android với các dịch vụ RESTful API. Dưới đây là một giải thích chi tiết về mỗi phần của mã bạn đã cung cấp:
+//
+//        com.squareup.retrofit2:retrofit:2.1.0
+//
+//Retrofit là một thư viện được phát triển bởi Square, được sử dụng để tạo và quản lý các HTTP requests và responses trong ứng dụng Android.
+//        Phiên bản 2.1.0 là phiên bản cụ thể của Retrofit mà bạn đang sử dụng.
+//com.squareup.retrofit2:converter-gson:2.1.0
+//
+//Đây là một converter cho Retrofit, được sử dụng để chuyển đổi dữ liệu từ JSON sang các đối tượng Java và ngược lại, bằng cách sử dụng thư viện Gson.
+//Nó giúp Retrofit hiểu và xử lý các tệp tin JSON trả về từ các RESTful API một cách thuận tiện.
+//com.squareup.okhttp3:okhttp:3.12.1
+//
+//OkHttp là một thư viện HTTP client cho Android và Java, cung cấp một cách đơn giản và hiệu quả để giao tiếp với các dịch vụ web thông qua giao thức HTTP.
+//        Phiên bản 3.12.1 là phiên bản cụ thể của OkHttp mà bạn đang sử dụng.
+//com.squareup.okhttp3:logging-interceptor:3.6.0
+//
+//Logging Interceptor là một interceptor cho OkHttp, được sử dụng để ghi lại và hiển thị các thông tin về các request và response HTTP để giúp trong việc debug và phát triển ứng dụng.
+//        Nó cho phép bạn theo dõi các request và response được gửi và nhận bởi ứng dụng của bạn, bao gồm các thông tin như headers, bodies và thời gian phản hồi.
+//Tóm lại, bằng cách sử dụng Retrofit kết hợp với Gson converter, bạn có thể dễ dàng thực hiện các yêu cầu HTTP đến các dịch vụ RESTful API và xử lý dữ liệu JSON một cách thuận tiện. Cùng với OkHttp và Logging Interceptor, bạn có một bộ công cụ mạnh mẽ để phát triển ứng dụng Android kết nối với các dịch vụ web.

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".view.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/topContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/usernameTextView"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemPaddingBottom="5dp"
+            android:layout_gravity="bottom"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:menu="@menu/menu_bottom_nav"
+           />
+    </FrameLayout>
+</RelativeLayout>
+
+
+
+<!--    android:layout_gravity: Đây là một thuộc tính được sử dụng để điều chỉnh cách mà một phần tử con được căn chỉnh bên trong không gian của parent (ViewGroup) của nó.-->
+
+
+
+
+<!--    android:layout_weight là một thuộc tính được sử dụng trong các loại layout như LinearLayout để xác định cách chia không gian giữa các phần tử con.-->
+
+<!--    Khi bạn đặt thuộc tính android:layout_weight cho một phần tử con, giá trị của nó sẽ quyết định tỷ lệ không gian mà phần tử đó sẽ chiếm trong parent layout so với các phần tử con khác. Giá trị của layout_weight được tính dựa trên tổng trọng số của tất cả các phần tử con trong cùng một layout.-->
+
+<!--    Ví dụ, nếu bạn có hai phần tử con trong một LinearLayout và bạn đặt layout_weight="1" cho cả hai, cả hai phần tử sẽ chiếm đều không gian của LinearLayout. Nhưng nếu bạn đặt layout_weight="2" cho một phần tử và layout_weight="1" cho phần tử còn lại, phần tử có layout_weight="2" sẽ chiếm một phần không gian lớn hơn so với phần tử còn lại (với layout_weight="1").-->
+
+
+<!--    FrameLayout là một loại ViewGroup được sử dụng để xếp chồng các thành phần con (children) lên nhau -->
